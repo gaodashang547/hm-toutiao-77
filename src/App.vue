@@ -1,5 +1,8 @@
 <template>
-  <div id="app">appsadfghjkhgfdsa</div>
+  <div id="app">
+    <!-- 这里是组件的视图出口 -->
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
