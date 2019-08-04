@@ -8,6 +8,7 @@ const router = new VueRouter({
   // 路由匹配规则
   routes: [
     { path: '/login', name: 'login', component: Login }
+
   ]
 })
 

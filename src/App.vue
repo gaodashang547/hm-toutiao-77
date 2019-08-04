@@ -9,6 +9,7 @@
 export default {
   name: 'app'
 }
+// 这是整个项目的根组件
 </script>
 
 <style lang="less">
