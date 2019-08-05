@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import store from '@/store（本地存储）'
 export default {
   data: function () {
     // 自定义校验规则：
@@ -81,8 +82,11 @@ export default {
         // 这里this.$refs 它会找到当前所有表示ref属性的元素 通过获取DOM对象 才能用这个DOM对象来调用组件中提供的方法
         if (asd) {
           this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm).then(res => {
-            console.log('校验成功')
+            // console.log('校验成功')
             // 如果校验成功 则页面跳转去首页
+            console.log(res.data)
+            // res 相应对象  包含相应主体
+            store.setUser(res.data.data)
 
             this.$router.push('/')
           })
