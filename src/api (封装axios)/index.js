@@ -1,7 +1,7 @@
 // 配置一个axios  导出一个配置好的axios
 import axios from 'axios'
-import store from '@/store(本地存储)'
-import router from '@/router(路由)'
+import store from '@/store（本地存储）'
+import router from '@/router（路由）'
 
 // 进行配置
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0/'
@@ -16,6 +16,9 @@ axios.interceptors.request.use((config) => {
   config.headers = {
     Authorization: `Bearer ${store.getUser().token}`
   }
+  // alert(0)
+  // console.log(config)
+
   return config
 }, (error) => {
   // 错误处理

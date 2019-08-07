@@ -9,7 +9,7 @@ import '@/style（less）/index.less'
 import router from '@/router（路由）'
 
 // 先引入axios
-import axios from 'axios'
+import axios from '@/api (封装axios)'
 //   在vue这个跟组件的原型上挂载一个axios  这样所有的 都能够继承 真个 axios
 
 Vue.prototype.$http = axios
