@@ -84,7 +84,7 @@ export default {
           this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm).then(res => {
             // console.log('校验成功')
             // 如果校验成功 则页面跳转去首页
-            console.log(res.data)
+            // console.log(res.data)
             // res 相应对象  包含相应主体
             store.setUser(res.data.data)
 
