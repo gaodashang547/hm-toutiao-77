@@ -9,20 +9,23 @@ import Article from '@/views/article'
 import Image from '@/views/image'
 import NotFound from '@/views/404'
 import store from '@/store（本地存储）'
+import Publish from '@/views/publish'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   // 路由匹配规则
   routes: [
     { path: '/login', name: 'login', component: Login },
-    { path: '/',
+    {
+      path: '/',
       name: 'home',
       component: Home,
       redirect: 'wellcome',
       children: [
         { path: '/wellcome', name: 'wellcome', component: Wellcome },
         { path: '/content', name: 'article', component: Article },
-        { path: '/image', name: 'image', component: Image }
+        { path: '/image', name: 'image', component: Image },
+        { path: '/publish', name: 'publish', component: Publish }
       ]
     },
     // 处理404
