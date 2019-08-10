@@ -16,6 +16,8 @@
         </el-form-item>
         <el-form-item>
           <el-checkbox v-bind:value="true">我已阅读并同意用户协议和隐私条款</el-checkbox>
+       <!-- 在el-checkbox元素定义中 v-model绑定变量，单一的checkbox中默认绑定的变量的值会是
+       boolean 值 当选中后期布尔值应为true -->
         </el-form-item>
         <el-form-item>
           <el-button type="primary" style="width:100%;margin-top
@@ -82,16 +84,19 @@ export default {
         // 这里this.$refs 它会找到当前所有表示ref属性的元素 通过获取DOM对象 才能用这个DOM对象来调用组件中提供的方法
         if (asd) {
           this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm).then(res => {
+            // .then 这是当验证信息通过后触发的成功函数
             // console.log('校验成功')
             // 如果校验成功 则页面跳转去首页
             // console.log(res.data)
             // res 相应对象  包含相应主体
             store.setUser(res.data.data)
-
+            // 若验证成功后 将用户的信息存储到sessionStorage中去
+            // 并将调到首页
             this.$router.push('/')
           })
             .catch(() => {
               this.$message.error('手机号或密码错误哦，亲！')
+            // 这是验证失败是要触发的catch函数
             })
         }
       })
@@ -110,8 +115,8 @@ export default {
 }
 
 .my-card {
-  width: 400px;
-  height: 340px;
+  // width: 400px;
+  // height: 340px;
   position: absolute;
   left: 50%;
   top: 50%;

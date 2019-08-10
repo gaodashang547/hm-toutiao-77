@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
+import component from '@/components (公用级别的组件 )'
 import 'element-ui/lib/theme-chalk/index.css'
 // @是某一个路径的别名 src路径别名 在vue-cli创建的项目下才可使用
 // 目录下是有默认索引文件 index.js 就是索引文件   。js ,vue .json
@@ -11,7 +12,7 @@ import router from '@/router（路由）'
 // 先引入axios
 import axios from '@/api (封装axios)'
 //   在vue这个跟组件的原型上挂载一个axios  这样所有的 都能够继承 这个 axios
-
+Vue.use(component)
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false

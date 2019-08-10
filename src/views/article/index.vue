@@ -18,14 +18,15 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="频道：">
-          <el-select v-model="reqParams.channel_id" placeholder="请选择" clearable>
+          <!-- <el-select v-model="reqParams.channel_id" placeholder="请选择" clearable>
             <el-option
               v-for="item in channelOptions"
               :key="item.id"
               :label="item.name"
               :value="item.id"
             ></el-option>
-          </el-select>
+          </el-select> -->
+          <my-channel></my-channel>
         </el-form-item>
         <!-- 在给后台传递日期的时候 是以TTue Aug 13 2019 00:00:00 GMT+0800 (中国标准时间)
         这种标准格式向后台传递的 而后台的数据接口却无法解读 所以element-ui 则提供了一种属性
@@ -129,16 +130,16 @@ export default {
   },
   // computed 计算属性使用的场景：当你需要一个新的数据 需要依赖data中的数据
   // watch 侦听器的使用场景：当你需要监听一个属性的值的变化时，去做一些开销较大的操作（异步操作）
-  watch: {
-    'reqParams.channel_id': function (newVal, oldVal) {
-      if (newVal === '') {
-        this.reqParams.channel_id = null
-      }
-    }
-  },
+  // watch: {
+  //   'reqParams.channel_id': function (newVal, oldVal) {
+  //     if (newVal === '') {
+  //       this.reqParams.channel_id = null
+  //     }
+  //   }
+  // },
   // 获取频道下拉选项数据
   created: function () {
-    this.getChannelOptions()
+    // this.getChannelOptions()
     // 获取文章列表数据
     this.getArtciles()
   },
@@ -194,10 +195,10 @@ export default {
     //  2 给返回promise的函数前 加上await关键字，用来直接获取到成功的结果
     //  3 但是是用await这个关键字的函数之外 必须是加上asyn的这个关键字来进行曲修饰
     //
-    async getChannelOptions () {
-      const { data: { data } } = await this.$http.get('http://ttapi.research.itcast.cn/mp/v1_0/channels')
-      this.channelOptions = data.channels
-    },
+    // async getChannelOptions () {
+    //   const { data: { data } } = await this.$http.get('http://ttapi.research.itcast.cn/mp/v1_0/channels')
+    //   this.channelOptions = data.channels
+    // },
     // axios get传参 url?key=value$key=value..
     // axios  get传参 第二传参是对象{params:指定的参数对象} 发送请求的时候会自动拼接在地址后面
     async getArtciles () {

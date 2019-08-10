@@ -6,6 +6,7 @@ import Login from '@/views/login'
 import Home from '@/views/home'
 import Wellcome from '@/views/wellcome'
 import Article from '@/views/article'
+import Image from '@/views/image'
 import NotFound from '@/views/404'
 import store from '@/store（本地存储）'
 Vue.use(VueRouter)
@@ -20,7 +21,8 @@ const router = new VueRouter({
       redirect: 'wellcome',
       children: [
         { path: '/wellcome', name: 'wellcome', component: Wellcome },
-        { path: '/content', name: 'article', component: Article }
+        { path: '/content', name: 'article', component: Article },
+        { path: '/image', name: 'image', component: Image }
       ]
     },
     // 处理404
