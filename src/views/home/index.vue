@@ -84,6 +84,10 @@ export default {
     eventBus.$on('updateName', (name) => {
       this.name = name
     })
+    eventBus.$on('updatePhoto', (photo) => {
+      this.photo = photo
+      console.log(123)
+    })
     const user = store.getUser()
     this.name = user.name
     this.photo = user.photo
