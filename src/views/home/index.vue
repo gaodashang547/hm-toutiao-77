@@ -70,6 +70,7 @@
 
 <script>
 import store from '@/store（本地存储）'
+import eventBus from '@/components (公用级别的组件 )/eventBus'
 export default {
   data: function () {
     return {
@@ -79,6 +80,10 @@ export default {
     }
   },
   created: function () {
+    // 更新名称
+    eventBus.$on('updateName', (name) => {
+      this.name = name
+    })
     const user = store.getUser()
     this.name = user.name
     this.photo = user.photo
@@ -92,7 +97,7 @@ export default {
     // 期望。把事件帮顶在组建解析后的原生Dom上  也就是说要给elememnt-ui的标签绑定事件是
     // 在事件之后加上.native 这个事件修饰符
     setting: function () {
-      this.$router.push('/setting')
+      this.$router.push('/man')
     },
     logout: function () {
       this.$router.push('/login')

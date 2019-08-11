@@ -6,8 +6,13 @@ const KEY = 'hm-toutiao-77-user'
 
 export default {
   setUser (user) {
+    // 如果登录的时候使用的是{}对象  或者是 配置齐全的 对象（信息完整）
+    // 则 你想要存储的信息应该是 当前传入信息与本地存储的信息进行合并，如果有相同的
+    // 后者会把前者进行覆盖后得到一个新的信息 再次存入本地储存中去
+    const localUser = this.getUser()
+    const nowUser = { ...localUser, ...user }
     // 存储用户信息到sessionStorage（在用户刚刚登录的时候对用户的信息进行存储 views/login/index.vue）
-    window.sessionStorage.setItem(KEY, JSON.stringify(user))
+    window.sessionStorage.setItem(KEY, JSON.stringify(nowUser))
     // 注意  存储的是时候是要用json 字符创的形式来存储
     // 同时 从sessionStorage中取出使用的时候应该转换为json对象的格式也就是说是key：value的格式
   },

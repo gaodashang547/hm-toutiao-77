@@ -10,8 +10,9 @@ import Image from '@/views/image'
 import NotFound from '@/views/404'
 import store from '@/store（本地存储）'
 import Publish from '@/views/publish'
-import Commont from '@/views/comment'
 
+import Commont from '@/views/comment'
+import Man from '@/views/man'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -28,7 +29,8 @@ const router = new VueRouter({
         { path: '/content', name: 'article', component: Article },
         { path: '/image', name: 'image', component: Image },
         { path: '/publish', name: 'publish', component: Publish },
-        { path: '/commont', name: 'commont', component: Commont }
+        { path: '/commont', name: 'commont', component: Commont },
+        { path: '/man', name: 'man', component: Man }
 
       ]
     },
