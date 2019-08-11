@@ -26,7 +26,7 @@
               :value="item.id"
             ></el-option>
           </el-select> -->
-          <my-channel></my-channel>
+          <my-channel v-model="reqParams.channel_id"></my-channel>
         </el-form-item>
         <!-- 在给后台传递日期的时候 是以TTue Aug 13 2019 00:00:00 GMT+0800 (中国标准时间)
         这种标准格式向后台传递的 而后台的数据接口却无法解读 所以element-ui 则提供了一种属性
